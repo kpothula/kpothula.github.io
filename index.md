@@ -3,68 +3,91 @@ layout: default
 title: Home
 ---
 
-# Welcome! 👋
+# Hello there! 👋
 
-I'm Krishna, a passionate professional who loves turning ideas into reality.
+I'm Krishna — a technology enthusiast, architect, and lifelong learner. I thrive at the intersection of innovation and execution, transforming complex ideas into impactful digital experiences.
 
 ## About Me
 
-I'm a dedicated individual with a keen interest in technology and innovation. I believe in continuous learning and pushing boundaries to create meaningful solutions.
+I’m a seasoned technology leader with over two decades of global experience driving digital transformation, AI innovation, and enterprise architecture strategy. As Head of Architecture at RTL, the largest commercial media organization in the Netherlands, I lead technology strategy, agile transformation, and innovation initiatives, including AI-first approaches leveraging LLMs, RAG, and autonomous agents. 
+
+## Connect With Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/krishnapothula/)
 
 ## Skills & Expertise
 
-- **Programming Languages**: [Your languages here]
-- **Technologies**: [Your tech stack]
-- **Tools**: [Your preferred tools]
+- **Architecture & Strategy**: Enterprise Architecture, Cloud Strategy, Agile at Scale (SAFe, Spotify), Business Continuity
+- **AI & Data**: LLMs, RAG, Vector Databases, Hugging Face, Databricks, Snowflake, Parquet
+- **Technologies**: Kubernetes, Docker, React, Node.js, OpenAI APIs, Tableau
+- **Leadership & Delivery**: M&A Integration, Agile Transformation, Vendor Management, Organizational Change
+- **Tools**: GitHub, Miro, JIRA, Figma, Postman
 
 ## Projects
 
-### Project 1
+### Browser-based Policy Q&A Agent
 
-Brief description of your first notable project.
+A lightweight, locally hosted Q&A system for company policies using open-source LLMs and ChromaDB.
 
-- Key achievements
-- Technologies used
-- [Link to project](#)
+- Integrated CI/CD with GitHub and local Ubuntu Server Pro
+- Leveraged local vector search for fast and private querying
+- [View project](#)
 
-### Project 2
+### Architecture-as-Code CI/CD Toolkit
 
-Brief description of your second project.
+An experimental toolkit to automate architecture documentation and reviews using code-based workflows.
 
-- Key features
-- Impact
-- [Link to project](#)
+- Combined Wardley Maps, markdown docs, and pipelines
+- Bridged gap between architecture and engineering practices
+- [View project](#)
 
 ## Experience
 
-### [Current/Recent Position]
+### Head of Architecture
 
-**Company Name** | Date - Present
+**RTL (Netherlands)** | 2018 - Present
 
-- Key responsibility 1
-- Key responsibility 2
-- Notable achievement
+- Lead enterprise-wide architecture and strategy for the largest commercial media company in the Netherlands
+- Drove major cloud-native transformations, AI initiatives, and architecture modeling
+- Spearheaded AI-first workflows and integrated LLM-based tools for media operations
+- Led adoption of enterprise agile models (Spotify, SAFe) and tech strategy across all platforms
+- Oversaw M&A integration, risk frameworks, and innovation partnerships
 
-### [Previous Position]
+### Director of Architecture
 
-**Company Name** | Start Date - End Date
+**Broadcast & Streaming Company, Netherlands** | 2021 - Present
 
-- Key responsibility
-- Notable achievement
+- Leading enterprise architecture strategy and governance
+- Championing innovation with AI/ML, edge computing, and cloud-native patterns
+- Introduced "Architecture as Code" practice to streamline design lifecycle
+
+### Enterprise Architect
+
+**Global Tech Consultancy** | 2010 - 2021
+
+- Delivered architecture for large-scale digital transformations
+- Mentored cross-functional teams and improved delivery efficiency
 
 ## Education
 
-- **Degree Name** | University Name
-  Year of graduation
-  - Notable achievements
-  - Relevant coursework
+- **Executive MBA** | Quantic School of Business and Technology (2017–2019)
+- **Leadership Program** | INSEAD (2023)
+- **Organizational Leadership** | Center for Creative Leadership (2023)
+- **Bachelor’s in Mechanical Engineering** | Osmania University (1995–1999)
 
-## Contact
+## Certifications
 
-- 📧 [Email](#)
-- 💼 [LinkedIn](#)
-- 🐱 [GitHub](#)
+- TOGAF 9 Certified
+- Change Management for Generative AI
+- Agentic AI and AI Agents: A Primer for Leaders
+- Python Basics for Java Developers
+
+## More Experiments
+
+Curious about my ongoing and exploratory work?  
+👉 [Explore more projects here](projects.md)
 
 ---
 
-_Feel free to reach out for collaborations or just a friendly chat!_
+_Let’s connect — whether it’s for collaboration, tech talk, or just to share ideas!_
+
