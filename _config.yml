@@ -1,6 +1,7 @@
 title: Krishna Pothula
 description: Me and my thoughts
 author: Krishna Pothula
+remote_theme: "jekyll/minima@1e8a445"
 theme: jekyll-theme-minima
 show_downloads: false
 google_analytics: G-6H8J4C13B6
