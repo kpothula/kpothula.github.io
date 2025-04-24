@@ -11,6 +11,8 @@ Geo-politics and Chess have lot of similarities. Both domains are strategic, inv
 
 Lets expand this analogy further, just for fun.
 
+![Chess and Geopolitics](/img/geopolitics-chess.png)
+
 ### 🏰 **Rook – Trade & Tariffs**
 
 - **Straight-line power, long reach.**
