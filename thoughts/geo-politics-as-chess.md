@@ -1,11 +1,15 @@
 ---
-layout: post
+layout: default
 title: "Looking at Geo-politics as Chess"
 date: 2024-03-21
 tags: [geopolitics, strategy, analogies]
 ---
 
-## Looking at Geo-politics as Chess
+# Looking at Geo-politics as Chess
+
+Geo-politics and Chess have lot of similarities. Both domains are strategic, involve asymmetric power dynamics, and depend heavily on positioning, foresight, and timing.
+
+Lets expand this analogy further, just for fun.
 
 ### 🏰 **Rook – Trade & Tariffs**
 
