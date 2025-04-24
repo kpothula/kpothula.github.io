@@ -9,7 +9,7 @@ I'm Krishna — a technology enthusiast, architect, and lifelong learner. I thri
 
 ## About Me
 
-I’m a seasoned technology leader with over two decades of global experience driving digital transformation, AI innovation, and enterprise architecture strategy. As Head of Architecture at RTL, the largest commercial media organization in the Netherlands, I lead technology strategy, agile transformation, and innovation initiatives, including AI-first approaches leveraging LLMs, RAG, and autonomous agents. 
+I'm a seasoned technology leader with over two decades of global experience driving digital transformation, AI innovation, and enterprise architecture strategy. As Head of Architecture at RTL, the largest commercial media organization in the Netherlands, I lead technology strategy, agile transformation, and innovation initiatives, including AI-first approaches leveraging LLMs, RAG, and autonomous agents.
 
 ## Connect With Me
 
@@ -73,7 +73,7 @@ An experimental toolkit to automate architecture documentation and reviews using
 - **Executive MBA** | Quantic School of Business and Technology (2017–2019)
 - **Leadership Program** | INSEAD (2023)
 - **Organizational Leadership** | Center for Creative Leadership (2023)
-- **Bachelor’s in Mechanical Engineering** | Osmania University (1995–1999)
+- **Bachelor's in Mechanical Engineering** | Osmania University (1995–1999)
 
 ## Certifications
 
@@ -87,7 +87,14 @@ An experimental toolkit to automate architecture documentation and reviews using
 Curious about my ongoing and exploratory work?  
 👉 [Explore more projects here](projects.md)
 
+## Thoughts & Reflections
+
+I like to explore thoughts and analogies on various different aspects. Sharing them here for fun - something to wonder about and not take too seriously.
+
+Recent thoughts:
+
+- [Looking at Geo-politics as Chess](thoughts/geo-politics-as-chess.md) - A strategic analogy of global politics
+
 ---
 
-_Let’s connect — whether it’s for collaboration, tech talk, or just to share ideas!_
-
+_Let's connect — whether it's for collaboration, tech talk, or just to share ideas!_
