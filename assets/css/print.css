@@ -1,0 +1,13 @@
+@media print {
+  .site-header,
+  .site-footer,
+  .site-nav {
+    border-color: #ccc;
+  }
+  body {
+    font-size: 12pt;
+  }
+  a {
+    color: #000;
+  }
+}
