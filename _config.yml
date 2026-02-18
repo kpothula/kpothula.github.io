@@ -2,6 +2,9 @@ title: Krishna Pothula
 description: Me and my thoughts
 author: Krishna Pothula
 url: "https://pothula.me"
+repository: kpothula/kpothula.github.io
+github_username: kpothula
+
 #remote_theme: "jekyll/minima"
 theme: jekyll-theme-architect
 show_downloads: false

@@ -19,8 +19,8 @@
           <a href="{{ '/projects.html' | relative_url }}">Projects</a>
           <a href="{{ '/thoughts/' | relative_url }}">Thoughts</a>
           <a href="{{ '/privacy.html' | relative_url }}">Privacy</a>
-          {% if site.github.is_user_page %}
-          <a href="{{ site.github.owner_url }}" class="nav-gh">GitHub</a>
+          {% if site.github_username %}
+          <a href="https://github.com/{{ site.github_username }}" class="nav-gh">GitHub</a>
           {% endif %}
         </nav>
       </div>
