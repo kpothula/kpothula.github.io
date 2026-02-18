@@ -31,7 +31,7 @@ A lightweight, locally hosted Q&A system for company policies using open-source 
 
 - Integrated CI/CD with GitHub and local Ubuntu Server Pro
 - Leveraged local vector search for fast and private querying
-- [View project](#)
+- [View project](projects.md#browser-based-policy-qa-agent)
 
 ### Architecture-as-Code CI/CD Toolkit
 
@@ -39,7 +39,7 @@ An experimental toolkit to automate architecture documentation and reviews using
 
 - Combined Wardley Maps, markdown docs, and pipelines
 - Bridged gap between architecture and engineering practices
-- [View project](#)
+- [View project](projects.md#architecture-as-code-cicd-toolkit)
 
 ## Experience
 
@@ -52,12 +52,6 @@ An experimental toolkit to automate architecture documentation and reviews using
 - Spearheaded AI-first workflows and integrated LLM-based tools for media operations
 - Led adoption of enterprise agile models (Spotify, SAFe) and tech strategy across all platforms
 - Oversaw M&A integration, risk frameworks, and innovation partnerships
-
-### Director of Architecture
-
-**Broadcast & Streaming Company, Netherlands** | 2021 - Present
-
-- Leading enterprise architecture strategy and governance
 - Championing innovation with AI/ML, edge computing, and cloud-native patterns
 - Introduced "Architecture as Code" practice to streamline design lifecycle
 
@@ -93,7 +87,7 @@ I like to explore thoughts and analogies on various different aspects. Sharing t
 
 Recent thoughts:
 
-- [Looking at Geo-politics as Chess](thoughts/geo-politics-as-chess.md) - A strategic analogy of global politics
+- [Looking at Geo-politics as Chess](thoughts/geo-politics-as-chess.html) — A strategic analogy of global politics
 
 ---
 
