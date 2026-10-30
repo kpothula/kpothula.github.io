@@ -9,6 +9,22 @@ redirect_from: /projects.html
 
 Here are some of the ongoing and exploratory projects I'm working on:
 
+## ArchiWeb
+
+A collaborative, browser-based ArchiMate® 3.2 modelling tool, modelled on [Archi](https://www.archimatetool.com/). It keeps Archi's metamodel, notation, rules and file formats, and adds real-time multi-user editing.
+
+- Technologies: TypeScript, Yjs (CRDTs), SQLite, Git, Model Context Protocol (MCP)
+- Features: Live collaboration with presence and per-user undo, Git sync compatible with Archi's coArchi2, views catalog, model health dashboard, `.archimate` and Open Group Exchange import/export
+- AI: An MCP server lets assistants such as Claude explore and edit models live, including impact analysis and health checks
+
+## Cadence
+
+A cycling route planner that runs entirely in the browser. Click the map to plan a ride, or let it generate a loop.
+
+- Technologies: JavaScript (no build step), OpenStreetMap, BRouter, Open-Meteo
+- Features: Loop generator with difficulty levels, climb detection, elevation profile, surface and road-type breakdown, wind and weather matched to departure time, GPX import/export
+- Links: [Try it live](https://pothula.me/cadence/) · [Source on GitHub](https://github.com/kpothula/cadence)
+
 ## Browser-based Policy Q&A Agent
 
 A lightweight Q&A system for internal policy documents, running locally with open-source LLMs and ChromaDB.
