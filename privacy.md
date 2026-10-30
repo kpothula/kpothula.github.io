@@ -1,22 +1,30 @@
 ---
 layout: default
 title: Privacy Policy
+permalink: /privacy/
+redirect_from: /privacy.html
 ---
 
 # Privacy Policy
 
-This website does not collect, store, or process any personal information from its visitors beyond what is described below.
+_Last updated: 30 October 2026_
 
-## Analytics
+This website does not collect, store, or process any personal information from its visitors.
 
-This site uses **Google Analytics** to understand how visitors use the site (e.g. page views, referral sources). Google Analytics may set cookies and collect anonymized usage data. For more information, see [Google's Privacy & Terms](https://policies.google.com/privacy) and [How Google uses data when you use our partners' sites or apps](https://policies.google.com/technologies/partner-sites).
+## Analytics and Cookies
+
+This site does not use analytics, tracking scripts, or cookies.
+
+## Hosting
+
+The site is hosted on [GitHub Pages](https://pages.github.com/). GitHub may log visitor IP addresses for security and operational purposes, as described in the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
 ## Third-Party Services
 
-Aside from Google Analytics as described above, this site does not integrate or share data with other third-party services.
+The site does not integrate or share data with any other third-party services.
 
 ## Updates to This Policy
 
-If this privacy policy changes in the future, the updated version will be posted on this page with a revised effective date.
+If this privacy policy changes in the future, the updated version will be posted on this page with a revised date.
 
 If you have any questions about this policy, feel free to contact me via [LinkedIn](https://www.linkedin.com/in/krishnapothula/).

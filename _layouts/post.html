@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<header class="post-header">
+  <h1>{{ page.title }}</h1>
+  <p class="post-meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+    {% if page.tags.size > 0 %} · {{ page.tags | join: ", " }}{% endif %}
+  </p>
+</header>
+
+{% if page.image %}
+<img class="post-image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+{% endif %}
+
+{{ content }}
+
+<p class="post-back"><a href="{{ '/thoughts/' | relative_url }}">← All thoughts</a></p>

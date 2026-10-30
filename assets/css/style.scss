@@ -70,8 +70,13 @@ body {
   margin-right: $space;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav a.active {
   color: $text;
+}
+
+.site-nav a.active {
+  font-weight: 600;
 }
 
 .site-nav .nav-gh {
@@ -239,4 +244,39 @@ body {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
+}
+
+/* Posts */
+.post-header {
+  margin-bottom: $space;
+}
+
+.post-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  font-family: $font-sans;
+  font-size: 0.875rem;
+  color: $text-muted;
+}
+
+.content .post-image {
+  display: block;
+  margin: 0 auto $space-lg;
+  max-width: 360px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.post-back {
+  font-family: $font-sans;
+  font-size: 0.875rem;
+  margin-top: $space-lg;
+}
+
+.post-list-date {
+  font-family: $font-sans;
+  font-size: 0.875rem;
+  color: $text-muted;
 }

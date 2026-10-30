@@ -1,15 +1,22 @@
 title: Krishna Pothula
 description: Me and my thoughts
 author: Krishna Pothula
+lang: en
 url: "https://pothula.me"
 repository: kpothula/kpothula.github.io
 github_username: kpothula
 
-#remote_theme: "jekyll/minima"
-theme: jekyll-theme-architect
-show_downloads: false
-google_analytics: G-6H8J4C13B6
+# Posts live in _posts/ and are served under /thoughts/
+permalink: /thoughts/:title/
+
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post
 
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-seo-tag
   - jekyll-sitemap

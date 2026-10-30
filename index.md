@@ -31,7 +31,7 @@ A lightweight, locally hosted Q&A system for company policies using open-source 
 
 - Integrated CI/CD with GitHub and local Ubuntu Server Pro
 - Leveraged local vector search for fast and private querying
-- [View project](projects.md#browser-based-policy-qa-agent)
+- [View project]({{ '/projects/' | relative_url }}#browser-based-policy-qa-agent)
 
 ### Architecture-as-Code CI/CD Toolkit
 
@@ -39,7 +39,7 @@ An experimental toolkit to automate architecture documentation and reviews using
 
 - Combined Wardley Maps, markdown docs, and pipelines
 - Bridged gap between architecture and engineering practices
-- [View project](projects.md#architecture-as-code-cicd-toolkit)
+- [View project]({{ '/projects/' | relative_url }}#architecture-as-code-cicd-toolkit)
 
 ## Experience
 
@@ -79,7 +79,7 @@ An experimental toolkit to automate architecture documentation and reviews using
 ## More Experiments
 
 Curious about my ongoing and exploratory work?  
-👉 [Explore more projects here](projects.md)
+👉 [Explore more projects here]({{ '/projects/' | relative_url }})
 
 ## Thoughts & Reflections
 
@@ -87,7 +87,11 @@ I like to explore thoughts and analogies on various different aspects. Sharing t
 
 Recent thoughts:
 
-- [Looking at Geo-politics as Chess](thoughts/geo-politics-as-chess.html) — A strategic analogy of global politics
+{% for post in site.posts limit:3 %}
+- [{{ post.title }}]({{ post.url | relative_url }}){% if post.description %} — {{ post.description }}{% endif %}
+{% endfor %}
+
+[All thoughts →]({{ '/thoughts/' | relative_url }})
 
 ---
 

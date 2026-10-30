@@ -1,0 +1,9 @@
+# Site navigation, shown on every page. Internal URLs use the /name/ form.
+- title: Home
+  url: /
+- title: Projects
+  url: /projects/
+- title: Thoughts
+  url: /thoughts/
+- title: Privacy
+  url: /privacy/
