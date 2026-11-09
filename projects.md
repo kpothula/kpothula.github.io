@@ -9,6 +9,14 @@ redirect_from: /projects.html
 
 Here are some of the ongoing and exploratory projects I'm working on:
 
+## Latticework: Mental Models for Architects
+
+A searchable field guide of more than 120 mental models for Solution, Domain and Enterprise Architects, drawing on thinkers such as Martin Fowler, Gregor Hohpe, Eric Evans and Michael Nygard. Each model is rewritten for the decisions architects actually face. Currently in progress, built with help from Claude.
+
+- Technologies: Next.js, React, TypeScript, MDX
+- Features: Each model has a one-line summary for executives and one for engineers, a diagram, an example, questions to ask and how it can mislead you. Readers can start from a symptom ("Every decision gets reopened") or a playbook, or explore a map of how the models connect. Includes workshop formats for architecture teams.
+- Links: [Visit the site](https://mentalmodels.pothula.me/)
+
 ## ArchiWeb
 
 A collaborative, browser-based ArchiMate® 3.2 modelling tool, modelled on [Archi](https://www.archimatetool.com/). It keeps Archi's metamodel, notation, rules and file formats, and adds real-time multi-user editing.
@@ -24,6 +32,14 @@ A cycling route planner that runs entirely in the browser. Click the map to plan
 - Technologies: JavaScript (no build step), OpenStreetMap, BRouter, Open-Meteo
 - Features: Loop generator with difficulty levels, climb detection, elevation profile, surface and road-type breakdown, wind and weather matched to departure time, GPX import/export
 - Links: [Try it live](https://pothula.me/cadence/) · [Source on GitHub](https://github.com/kpothula/cadence)
+
+## Kiesraad 2026 🗳️ {#kiesraad-2026}
+
+A web application for browsing Dutch municipal election candidate lists for the 18 March 2026 elections, sourced from official [Kiesraad](https://www.kiesraad.nl/) data. Built with [Lovable](https://lovable.dev/).
+
+- Technologies: React, TypeScript, Vite, Tailwind CSS, shadcn/ui, Recharts
+- Features: Search candidates across all municipalities and parties, browse by municipality or party, statistics on candidate demographics and party distribution, Dutch and English, dark mode
+- Links: [Visit the site](https://kiesraad2026.pothula.me/)
 
 ## Browser-based Policy Q&A Agent
 
