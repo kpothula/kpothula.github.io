@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="{{ page.stylesheet | relative_url }}">
+{% seo %}
+{% include head-custom.html %}
+</head>
+<body>
+<!-- Self-styled report page: its own stylesheet, with the shared site nav on top -->
+<div class="site-bar">
+  <div class="wide">
+    <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+    {% include site-nav.html %}
+  </div>
+</div>
+
+{{ content }}
+</body>
+</html>

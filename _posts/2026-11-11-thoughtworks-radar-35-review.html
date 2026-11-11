@@ -1,0 +1,538 @@
+---
+title: "Thoughtworks Technology Radar Vol. 35: a plain-language review"
+description: A plain-language review of Thoughtworks Technology Radar Vol. 35 (November 2026). Ten topics, each with what the radar says, what it means for an organization, and a critical review.
+summary: What the November 2026 radar says about AI agents, what it means for organizations, and where it falls short
+date: 2026-11-11
+tags: [technology radar, ai agents, architecture]
+layout: report
+stylesheet: /assets/css/radar-35.css
+---
+
+<header class="hero" id="top">
+  <div class="wide">
+    <h1>Thoughtworks Technology Radar, November 2026: what it says, what it means, where it falls short</h1>
+    <p class="sub">A plain-language review of Volume 35, covering all 117 entries.</p>
+
+    <section class="overview" aria-labelledby="overview-h">
+      <h2 id="overview-h">Overview</h2>
+      <p>Thoughtworks publishes its Technology Radar twice a year. It lists tools, techniques, platforms and frameworks, and places each one in a ring that shows how strongly Thoughtworks recommends it. This report groups the November 2026 edition into ten topics. Each topic has three parts: what the radar says, what it means for an organization, and a critical review of how far the advice can be trusted.</p>
+      <p><strong class="sans">The main message in five points</strong></p>
+      <ul class="points">
+        <li><strong>The delay has moved.</strong> AI coding agents now write code faster than most organizations can review, test, release and pay for it.</li>
+        <li><strong>Review less, but review properly.</strong> Approving everything is a show, not a control. People should spend their review time where they can truly judge the result.</li>
+        <li><strong>Pick the model for the task.</strong> Using the strongest model for everything wastes money. Put one gateway in front of model traffic so you can control cost and access.</li>
+        <li><strong>The setup around an agent needs an owner.</strong> Its instructions, skills and tools go stale and pile up, just like old code.</li>
+        <li><strong>Treat agents as untrusted software.</strong> Limit what they can reach, and watch where data can leave.</li>
+      </ul>
+
+      <p style="margin-top:1.4rem"><strong class="sans">The four rings in plain words</strong></p>
+      <dl class="rings">
+        <dt>Adopt</dt><dd>Thoughtworks recommends it.</dd>
+        <dt>Trial</dt><dd>Worth using on a project that can take some risk.</dd>
+        <dt>Assess</dt><dd>Worth studying. Not recommended yet.</dd>
+        <dt>Caution</dt><dd>Avoid it, or proceed with care.</dd>
+      </dl>
+    </section>
+
+    <nav class="topics-nav" aria-labelledby="nav-h">
+      <h2 id="nav-h">Go to a topic</h2>
+      <p class="nav-note">The priority tag is my judgment, not Thoughtworks’. Act now means start this quarter. Pilot means try it on one or two cases. Watch means keep an eye on it.</p>
+      <ul class="topics">
+        <li><a class="t" href="#flow">Delivery flow</a><span class="d">Faster coding moves the delay to review, testing and release.</span><span class="pr"><span class="pill act">Act now</span></span></li>
+        <li><a class="t" href="#oversight">Human oversight</a><span class="d">Spend human review on changes people can truly judge.</span><span class="pr"><span class="pill act">Act now</span></span></li>
+        <li><a class="t" href="#verification">Verification and architecture as code</a><span class="d">Machine-checkable designs and specifications help check agent output.</span><span class="pr"><span class="pill pilot">Pilot</span></span></li>
+        <li><a class="t" href="#models">Models and gateways</a><span class="d">Match the model to the task, and control model traffic in one place.</span><span class="pr"><span class="pill act">Act now</span></span></li>
+        <li><a class="t" href="#harness">The agent harness</a><span class="d">Agent instructions, skills and tools need an owner.</span><span class="pr"><span class="pill act">Act now</span></span></li>
+        <li><a class="t" href="#security">Agent security</a><span class="d">Treat agents as untrusted software, and plan for business users who build.</span><span class="pr"><span class="pill act">Act now</span></span></li>
+        <li><a class="t" href="#runtimes">Running agents in production</a><span class="d">Agent runtimes and open standards are forming, but most products are early.</span><span class="pr"><span class="pill pilot">Pilot</span></span></li>
+        <li><a class="t" href="#infrastructure">AI infrastructure</a><span class="d">Few organizations need their own GPU stack. Most need cost control.</span><span class="pr"><span class="pill watch">Watch</span></span></li>
+        <li><a class="t" href="#data">Data and workflow contracts</a><span class="d">Clear contracts give agents safe boundaries.</span><span class="pr"><span class="pill pilot">Pilot</span></span></li>
+        <li><a class="t" href="#measurement">Accountability and measurement</a><span class="d">Measure delivery results, and keep a record of what agents did.</span><span class="pr"><span class="pill act">Act now</span></span></li>
+        <li><a class="t" href="#selfcheck">Self-check and next steps</a><span class="d">Six questions to test readiness, and the decisions to make this quarter.</span><span class="pr"></span></li>
+        <li><a class="t" href="#trust">How far to trust this</a><span class="d">The limits of the radar’s evidence and of this review.</span><span class="pr"></span></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- 1 DELIVERY FLOW -->
+<section class="wrap topic" id="flow" aria-labelledby="flow-h">
+  <h2 id="flow-h">Faster coding moves the delay to review, testing and release</h2>
+
+  <figure class="pipeline">
+    <div class="pipeline-scroll">
+      <svg viewBox="0 0 800 270" role="img" aria-labelledby="pipe-title pipe-desc">
+        <title id="pipe-title">A pipe that is wide at the writing stage and narrow at review</title>
+        <desc id="pipe-desc">Delivery stages from left to right: write, review, test and build, release, operate. The pipe is wide at the writing stage because agents speed it up, and narrows sharply at review. Work items pile up just before review.</desc>
+        <path class="pipe-body" d="M0,45 L100,45 C180,45 180,95 260,95 C340,95 340,87 420,87 C500,87 500,91 580,91 C650,91 650,91 720,91 L800,91 L800,149 L720,149 C650,149 650,149 580,149 C500,149 500,153 420,153 C340,153 340,145 260,145 C180,145 180,195 100,195 L0,195 Z"/>
+        <g class="d-dot">
+          <circle cx="203" cy="106" r="5"/><circle cx="220" cy="111" r="5"/><circle cx="237" cy="117" r="5"/>
+          <circle cx="211" cy="123" r="5"/><circle cx="228" cy="128" r="5"/><circle cx="196" cy="131" r="5"/>
+          <circle cx="214" cy="139" r="5"/><circle cx="244" cy="107" r="5"/>
+        </g>
+        <text class="d-note" x="100" y="28" text-anchor="middle">Agents widen this stage</text>
+        <text class="d-note" x="262" y="62" text-anchor="middle">Capacity barely moves</text>
+        <text class="d-warn" x="150" y="218" text-anchor="start">Work waits here</text>
+        <text class="d-stage" x="100" y="254" text-anchor="middle">Write</text>
+        <text class="d-stage" x="260" y="254" text-anchor="middle">Review</text>
+        <text class="d-stage" x="420" y="254" text-anchor="middle">Test and build</text>
+        <text class="d-stage" x="580" y="254" text-anchor="middle">Release</text>
+        <text class="d-stage" x="720" y="254" text-anchor="middle">Operate</text>
+      </svg>
+    </div>
+    <figcaption>An illustration of the idea, not measured data. When one step gets faster, the queue moves to the next narrow step.</figcaption>
+  </figure>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Path-to-production mapping moves to Adopt. It is a workshop where everyone involved lists each step from a developer’s laptop to production and marks where work gets stuck.</li>
+      <li>Using coding output as a measure of productivity is in Caution. That means numbers such as the share of code written by AI or the number of tokens used. The radar says developers are creating busywork to hit these targets.</li>
+      <li>Stacked pull requests, which are chains of small dependent changes, are in Caution. The radar says they often hide poor up-front planning of how to split the work.</li>
+      <li>Agent pipeline responsibility is in Assess. Agents should be able to see the build status and follow the same rules as people, such as “do not push when the build is red”.</li>
+      <li>In its theme on running more agents, the radar says review capacity and delivery pipelines are the real limits. Teams should check them before adding agent sessions.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>More agents do not mean faster delivery on their own. Work waits in review, testing, approvals and release. More agent output makes those queues longer.</li>
+      <li>Large, tangled changes are slow to review, no matter who wrote them. How work is split into pieces now affects delivery speed directly.</li>
+      <li>Rules that protect the build must be enforced by the pipeline. Agents will not follow rules that exist only in a document.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>Strong point.</strong> This is the best-supported message in the radar. Its top recommendation here is a workshop, not a product, so it is cheap to act on.</li>
+      <li><strong>Weak point.</strong> The radar gives no numbers. It does not say how much review capacity is enough or how many agent sessions a team should run. A sensible rule is to add sessions only when the slowest step has spare room, but that is a rule of thumb, not a tested result.</li>
+      <li><strong>One-sided.</strong> The warning about stacked pull requests is an opinion. Many teams use stacking to keep changes small and easy to review. The radar’s point is fair, but it shows only one side.</li>
+      <li><strong>Not covered.</strong> How formal approvals, such as change boards and compliance reviews, fit into a faster flow.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 2 OVERSIGHT -->
+<section class="wrap topic" id="oversight" aria-labelledby="oversight-h">
+  <h2 id="oversight-h">Human review works only when people can truly judge what they approve</h2>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Human-in-the-loop theater is in Caution. A person approves things they cannot realistically judge, so nobody truly owns the decision.</li>
+      <li>Risk-tiered human oversight is in Trial. People make the riskiest or hardest-to-reverse changes. People review medium-risk changes. The pipeline merges low-risk changes automatically. Teams can mark sensitive areas of the codebase, and can use an AI to rate each change, although the AI can be wrong.</li>
+      <li>Meat proxy is in Caution. It means passing on AI output to a colleague without reading or checking it.</li>
+      <li>Mutation testing is in Adopt. It adds small deliberate bugs to code and checks that the tests fail. This catches AI-written tests that pass without checking anything.</li>
+      <li>Unattended overnight agentic builds are in Trial. An agent works on a feature-sized task overnight and people review the result in the morning. The radar says this needs sandboxes, written specifications and automatic feedback first.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>Decide in advance which changes people must make, which people must review, and which can merge automatically. Write this down as policy.</li>
+      <li>A review that is only a formality gives you the risk without the control. Cutting review on low-risk changes can make things safer if it leaves people time for the high-risk ones.</li>
+      <li>Every person stays responsible for what they pass on, including text and code from an AI.</li>
+      <li>Overnight runs are a useful readiness test. If you could not leave an agent working unwatched, you are probably not controlling it well in the daytime either. The radar makes the same point.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>The hard part is left to you.</strong> The radar does not say how to decide what counts as high risk, and it admits its AI rating is fallible.</li>
+      <li><strong>No safe limit is given.</strong> There is no evidence yet on how much auto-merging is safe. Start with narrow, easily reversed categories, such as formatting changes, and widen slowly.</li>
+      <li><strong>Limited proof.</strong> The overnight-build test is clever, but it comes from Thoughtworks’ own teams and has no measured results.</li>
+      <li><strong>Not covered.</strong> Industries where law or policy requires a named person to sign off on changes.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 3 VERIFICATION -->
+<section class="wrap topic" id="verification" aria-labelledby="verification-h">
+  <h2 id="verification-h">Machine-checkable designs and specifications help check agent output</h2>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>CALM is in Assess. It is an open specification from FINOS for describing software architecture in a standard, machine-readable format. The radar calls it architecture as code. It can be checked against what was built, and teams can manage it in a decentralized way while keeping one overall view.</li>
+      <li>TLA+ and Quint are in Assess. Both are formal languages for finding design flaws in distributed systems. The radar says coding agents have made them cheaper to use. It calls the choice between them close: Quint is easier to read and has better tooling, and TLA+ is more mature.</li>
+      <li>Tests as data over tests as code is in Assess. Test cases are written as structured data, such as YAML or JSON, and a shared harness runs them. This limits what agents can generate. The same cases can also run against old and new systems during modernization.</li>
+      <li>Semantic review of AI-edited prose is in Assess. An AI explains how the meaning of a specification or plan changed, instead of showing a text diff.</li>
+      <li>The radar suggests steering systems with mutation testing, property-based testing and formal models, instead of reviewing every change by hand.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>When agents write most of the code, checking against a precise statement of what the system must do is worth more than reading code line by line. Key rules, interfaces and behaviors need to be written in a form a machine can check.</li>
+      <li>Diagrams and documents drift away from reality, and agents also read them as input. A checkable description helps both people and agents.</li>
+      <li>A sensible first step is a pilot on one or two designs where mistakes are costly, such as money movement or workflows with many failure cases.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>Nothing here is recommended yet.</strong> Every item is in Assess. The CALM entry describes no production use and says nothing about how mature the tools are.</li>
+      <li><strong>A new risk the radar skips.</strong> An agent-written specification can be wrong in the same way agent-written code can. Someone with the right skills must still review the specification itself.</li>
+      <li><strong>Upkeep matters.</strong> A machine-readable architecture helps only if it stays current. Otherwise it is one more stale document, which is the problem the radar warns about under documentation sprawl.</li>
+      <li><strong>New skills needed.</strong> A new format means new training and tools. Check the community and tooling before committing.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 4 MODELS -->
+<section class="wrap topic" id="models" aria-labelledby="models-h">
+  <h2 id="models-h">Choose the model for each task, and control model traffic in one place</h2>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Blanket frontier model usage is in Caution. It means sending every task to the most capable model without regard to cost or speed. The radar says routine work, such as exploring code, simple edits and summaries, often runs well on smaller or open-weight models.</li>
+      <li>Open-weight models are in Trial. These are models whose weights are published, so you can run them yourself. Thoughtworks reports good results from the DeepSeek, GLM and Kimi families on production work and says the gap to proprietary models is much smaller than a year ago. It lists lower cost, less vendor lock-in and better data control as benefits. Self-hosting takes more effort, but major cloud providers now offer managed versions.</li>
+      <li>Local coding models moved from Caution to Assess. Small language models are in Trial for narrow, high-volume tasks. Decision models, a new type that returns structured answers such as probabilities instead of text, are in Assess.</li>
+      <li>LiteLLM, an AI gateway, is in Trial. Several Thoughtworks teams use it for routing, keys, budgets and guardrails across more than 100 providers. It is held out of Adopt mainly for security reasons: more than 25 reported vulnerabilities (CVEs) this year. agentgateway, in Assess, also covers tool and agent-to-agent traffic.</li>
+      <li>Context profiling is in Assess. It means measuring where tokens go before trying to cut them. Naive context compression is in Caution because it can break caching and raise the bill.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>Treat model choice as a standing decision with tiers, for example small, mid-range and strongest, and say which kinds of work go where. Do not leave it to each team.</li>
+      <li>A gateway gives you one place for keys, budgets, logs and rules. It also becomes a high-value target, because every request and credential passes through it. Run it as critical infrastructure and patch it quickly.</li>
+      <li>Switching models is not free. Earlier editions of the radar note that the same prompt behaves differently on different models, and that using provider-specific features brings back the coupling a gateway is meant to remove.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>No benchmark figures.</strong> “Good results” comes from the radar’s own projects. Test any cheaper model on your own tasks before moving work to it.</li>
+      <li><strong>Cheaper per token is not always cheaper per task.</strong> The radar itself notes that stronger models sometimes finish with fewer tokens. Measure the cost of a finished task.</li>
+      <li><strong>Origin rules.</strong> Several of the open-weight models it names (DeepSeek, GLM, Kimi) come from China-based labs, and some organizations restrict that. The radar does not discuss this.</li>
+      <li><strong>Missing comparison.</strong> The radar does not compare gateways with cloud-provider or API-management products you may already own. Its favored gateway also has a weak security record this year, which is a fair reason to look at alternatives.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 5 HARNESS -->
+<section class="wrap topic" id="harness" aria-labelledby="harness-h">
+  <h2 id="harness-h">Agent instructions, skills and tools need an owner, like any shared software</h2>
+  <p class="intro-line">In this report, the harness means everything around an AI agent: its instructions, skills, tools, memory, guardrails and feedback loops.</p>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Its theme is that harness engineering is becoming a real discipline, and that a harness is a living asset that needs ongoing ownership.</li>
+      <li>Three Caution items show how it goes wrong. <em>Agent instruction bloat:</em> rules pile up and turn long, contradictory and stale. <em>Agent skill cognitive surrender:</em> teams import large skill libraries without understanding them. <em>AI-driven documentation sprawl:</em> generated documents go stale and then mislead the agents that read them. The radar notes that Anthropic removed over 80% of Claude Code’s system prompt for its newest models with no measurable loss.</li>
+      <li>In Trial: an agent plugin marketplace (share skills, instructions and tool connections between teams through Git), Agent Package Manager (versions, lock files and provenance for agent assets), a feedback flywheel (ask at the end of each session what shared rules should change), a self-improving harness (agents propose harness changes), and anchoring coding agents to a reference application (agents read current standards from a live example).</li>
+      <li>In Assess: an enterprise harness (an organization-wide layer of approved technologies, decision records, security policies and skills), Agent Plugins (an open packaging standard backed by Amazon, Microsoft and OpenAI), and harness quality evaluation (testing that your guardrails and skills work). For the enterprise harness, the advice is to keep it thin and federated, because nobody yet knows how to do this well.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>Standards that live only in documents and meetings will not reach agents. They need to live where agents read: templates, reference applications, plugins and automated checks.</li>
+      <li>Give the harness an owner, version it, review changes, and delete rules that are no longer needed. After each model upgrade, try removing rules and see what breaks.</li>
+      <li>Use open formats so assets can move between agents. Tools change fast, and your assets should outlast them.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>Unmeasured.</strong> The claim that the harness matters as much as the model is plausible, but nobody has measured it. Most of the Trial items here rest on a few teams.</li>
+      <li><strong>The radar pulls in two directions.</strong> It wants shared assets across the organization, and it warns about bloat and imported libraries. A central marketplace can make bloat worse unless someone curates it. The radar does not say who should approve what, or how large the shared layer should get.</li>
+      <li><strong>Vendor source.</strong> The 80% example comes from a vendor describing its own product.</li>
+      <li><strong>Early standards.</strong> Agent Plugins is described as deliberately minimal and is only in Assess. Avoid heavy investment in one packaging format for now.</li>
+      <li><strong>Self-improving harnesses.</strong> They sound useful, but the radar itself says gains must be checked, with people setting the limits.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 6 SECURITY -->
+<section class="wrap topic" id="security" aria-labelledby="security-h">
+  <h2 id="security-h">Treat agents as untrusted software, and plan for business users who build</h2>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Agent sandboxing is in Adopt. The radar calls it a sensible default for all agents: run them in isolated environments with limited access, guided by threat modeling.</li>
+      <li>Threat modeling is in Adopt. MITRE ATLAS (Assess) is a catalog of attacks on AI systems that helps teams name risks. Toxic flow analysis (Trial) looks for paths where an agent has private data, reads untrusted content and can send data out.</li>
+      <li>Stateful guardrails (Trial) check whole conversations instead of single messages. Promptfoo (Trial) tests and red-teams AI applications. It is now owned by OpenAI.</li>
+      <li>Supply chain tools: Agent Package Manager scans for hidden characters that could hijack agent behavior. Safe Chain (Assess) blocks very new or known-malicious npm and Python packages. zizmor (Assess) scans GitHub Actions workflows for risky settings. The radar cites an attack this year on the Trivy repository’s workflow.</li>
+      <li>Secrets and isolation: Varlock (Assess) keeps real secrets away from agents by giving them placeholders. nono.sh (Assess) isolates agent processes at the operating-system level.</li>
+      <li>Data and access: Presidio (Trial) finds and masks personal data before it reaches an LLM. OpenFGA (Trial) handles fine-grained permissions when role-based access is not enough.</li>
+      <li>AI-accelerated shadow IT is in Caution. This is people outside engineering building apps with coding agents. The radar’s answer is a safe place to build, for example LibreChat (Trial), where administrators approve which tools are available.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>Apply the same controls as for any untrusted code: limited accounts, limited network, no standing credentials, full logs.</li>
+      <li>The dangerous combination is private data, untrusted input and a way to send data out. For each agent, remove at least one of the three.</li>
+      <li>Skills, plugins and tool servers are part of your software supply chain. Review them before use.</li>
+      <li>Business users will build things. A governed place to do it is easier to manage than a ban.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>Scattered advice.</strong> The guidance is sound but spread over more than a dozen entries. Each organization must assemble it into one set of controls.</li>
+      <li><strong>Thin evidence.</strong> Many of these tools are in Assess and rest on one team’s experience.</li>
+      <li><strong>Known gaps in the tools.</strong> The radar itself says Presidio can miss personal data, so do not make it your only control. Promptfoo’s advanced attacks use a hosted service, so check what data leaves your organization. Safe Chain covers only two ecosystems and relies on one vendor’s threat feed.</li>
+      <li><strong>Not covered.</strong> The radar says little about giving agents their own identities and keeping audit trails of what they did. Both matter for compliance.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 7 RUNTIMES -->
+<section class="wrap topic" id="runtimes" aria-labelledby="runtimes-h">
+  <h2 id="runtimes-h">Agent runtimes and open standards are forming, but most products are early</h2>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Managed agents runtime is in Trial. Agents run on a platform that handles execution, sandboxing, triggers, credentials, session state and monitoring, instead of on a developer’s laptop. It can be hosted or self-hosted. The radar says to treat it as production infrastructure.</li>
+      <li>Examples in Assess: Claude Managed Agents (beta, based on one internal team’s experience, supports only Anthropic’s harness and Claude models, and is not eligible for zero data retention), AWS DevOps Agent (investigates incidents and is billed per agent-second, so costs are hard to predict), and Omnigent (alpha, one set of policies across several coding agents). In Trial: Kagent, which runs agents as Kubernetes resources deployed with GitOps, and Deep Agents, a harness for long-running tasks.</li>
+      <li>Coding harness for general-purpose agents is in Trial. Teams build non-coding agents on the runtime of a mature coding agent instead of assembling their own agent loop. The trade-off is less control in exchange for a runtime that is already well tested.</li>
+      <li>Open standards: MCP connects agents to tools, A2A connects agents to each other, and Agent Client Protocol (Assess) connects editors to agents. The radar says this makes the agent harness swappable.</li>
+      <li>Three command-line coding agents are now in Adopt: Claude Code, OpenAI Codex and OpenCode. Linear (Trial) lets teams assign issues to agents.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>Decide where agents run and who operates them, as you would for any workload. They need identity, secrets, logs and cost limits.</li>
+      <li>Prefer open standards between agents, tools and editors to limit lock-in.</li>
+      <li>Expect to have more than one coding agent. A policy layer above them may help.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>Early products.</strong> Most claims rest on one team or on beta and alpha products, and the radar says so. Wait for stronger evidence before standardizing on a platform.</li>
+      <li><strong>Not a market comparison.</strong> The radar says it reflects Thoughtworks’ experience and is not a full market analysis. Its tool picks show what its teams use. Do not read it as a product comparison.</li>
+      <li><strong>Cost is a bigger problem than one product.</strong> Per-second and per-session pricing make budgets hard to forecast, and the radar offers little beyond gateways to control it.</li>
+      <li><strong>Assumes Kubernetes skills.</strong> Kagent suits organizations that already know Kubernetes. Others would be adopting a new platform as well as a new tool.</li>
+      <li><strong>Ownership changes.</strong> Several tools changed owner recently. See the last section.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 8 INFRASTRUCTURE -->
+<section class="wrap topic" id="infrastructure" aria-labelledby="infrastructure-h">
+  <h2 id="infrastructure-h">Few organizations need their own AI infrastructure. Most need cost control.</h2>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Its “AI factory” theme says token costs ultimately come down to infrastructure costs: model choice, routing, batching, data movement and platform efficiency. Kubernetes is becoming the base.</li>
+      <li>KServe (Trial) manages model serving on Kubernetes. Thoughtworks teams prefer it for in-house inference platforms, though its newer LLM part is still evolving.</li>
+      <li>In Assess: llm-d (distributed inference and scheduling), KAITO (GPU node setup and model deployment, most mature on Azure Kubernetes Service), VAST DataStore (high-speed storage, described as expensive and a vendor tie-in) and Netris (network automation for AI data centers).</li>
+      <li>Supporting items: vCluster (virtual clusters for several tenants) and Talos Linux (a locked-down operating system for Kubernetes nodes) are in Trial. VictoriaMetrics, for large-scale metrics, moves to Adopt. VictoriaLogs and Chaos Mesh are in Trial.</li>
+      <li>FreeToken (Assess) runs very large open models on consumer hardware.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>Most organizations buy AI capacity. Their savings come from the model tiers, routing and budgets covered above, not from running GPUs.</li>
+      <li>Running your own inference makes sense only with high volume, strict data rules or tight latency needs. Then you run a fleet that needs a platform team, cost tracking and capacity planning.</li>
+      <li>Decide early whether you are a buyer or an operator, so you do not drift into running hardware by accident.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>This is for a minority.</strong> Most entries are in Assess and come from Thoughtworks teams building AI cloud platforms, which is a specialized setting. Do not generalize from it.</li>
+      <li><strong>No cost figures.</strong> The radar says infrastructure drives AI cost but shows no numbers. Build a cost model with your own figures before building anything.</li>
+      <li><strong>Tie-in and young projects.</strong> VAST DataStore is proprietary, KAITO is an early CNCF Sandbox project, and Talos Linux changed owner in 2026.</li>
+      <li><strong>Not AI-specific.</strong> VictoriaMetrics reaching Adopt is a strong signal, but it is about metrics at very large scale and does not depend on AI.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 9 DATA -->
+<section class="wrap topic" id="data" aria-labelledby="data-h">
+  <h2 id="data-h">Clear data and workflow contracts give agents safe boundaries</h2>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Open Data Contract Standard (ODCS) moves to Adopt. It describes a data product’s schema, quality rules and service levels in YAML. It is run by the Linux Foundation’s Bitol project, which graduated in July 2026. The radar says clients building data products are moving to it, and that its format is easier for people and AI agents to read and check.</li>
+      <li>Cube Core (Trial) is a semantic layer. Teams define business metrics once, as code, and use the same definitions in dashboards, applications and AI workflows.</li>
+      <li>Foundation models for structured data (Assess) are models trained on an organization’s event and transaction data for predictions, with less hand-built feature work.</li>
+      <li>Microsoft Copilot Retrieval API (Trial) retrieves text from SharePoint and OneDrive for agents, with access control applied for the calling user.</li>
+      <li>Temporal and Restate (both Trial) run long business workflows that survive failures and can wait for a person. Restate now runs a core process in a large insurance system. Kafka share groups (Trial) let many consumers share work from a topic like a queue, without ordering guarantees.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>Agents will use your interfaces and data. Contracts, schemas and shared metric definitions work as guardrails because they say what is allowed and expected.</li>
+      <li>Long, multi-step agent work looks like a business workflow and needs the same things: retries, saved state and approval steps. Workflow engines such as Temporal and Restate are candidates for this. The radar does not make this link itself. It is my reading.</li>
+      <li>When agents fetch company data, keep using the access controls you already have.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>Strongest call, with a catch.</strong> ODCS in Adopt is the firmest recommendation in this area. But competing standards still exist, and a contract standard works only when teams own and enforce their contracts. A standard does not create ownership.</li>
+      <li><strong>Weak link to agents.</strong> Temporal, Restate and Kafka share groups are general infrastructure choices. The radar does not present them as agent recommendations.</li>
+      <li><strong>Vendor tie-in.</strong> The Microsoft retrieval API saves effort and ties you to Microsoft’s ecosystem. The radar does not discuss that.</li>
+      <li><strong>Check the fine print.</strong> Restate’s server uses a Business Source License that rules out offering it as a managed service. Kafka share groups can deliver a record more than once, and dead-letter queue support is not available yet.</li>
+      <li><strong>Little evidence.</strong> Foundation models for structured data have few real-world results so far. Watch them, but do not build on them yet.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- 10 MEASUREMENT -->
+<section class="wrap topic" id="measurement" aria-labelledby="measurement-h">
+  <h2 id="measurement-h">Measure delivery results, and keep a record of what agents did</h2>
+
+  <div class="part says">
+    <h3>What the radar says</h3>
+    <ul>
+      <li>Coding throughput as a measure of productivity is in Caution. The radar recommends DORA metrics (delivery speed and stability) and collaboration quality, tied to business results. It cites Goodhart’s law: a measure that becomes a target stops being a good measure.</li>
+      <li>Git AI (Trial) records which lines were written by AI, and by which agent, model and prompt, using git notes.</li>
+      <li>Entire CLI (Assess) saves agent sessions, including prompts and transcripts, in the repository so teams can learn from each other. Thoughtworks says some developers disliked sharing every prompt. AgentsView (Assess) lets developers review their own sessions locally instead.</li>
+    </ul>
+  </div>
+
+  <div class="part means">
+    <h3>What it means for an organization</h3>
+    <ul>
+      <li>Track outcomes such as lead time, failure rate and recovery time. Do not make AI usage a goal.</li>
+      <li>Keep a record of what changed the system and why, for audit, debugging and learning. Choose on purpose whether records are visible to the team or private.</li>
+      <li>People stay accountable for work they pass on, with or without an AI.</li>
+    </ul>
+  </div>
+
+  <div class="part review">
+    <h3>Critical review</h3>
+    <ul>
+      <li><strong>No new measure offered.</strong> The warning about metrics is right, but the radar offers nothing new for measuring agent-assisted work. DORA metrics pre-date agents and do not show review load or rework. Consider also tracking review waiting time and rework rate.</li>
+      <li><strong>Records have costs.</strong> Recording all prompts has privacy, culture and data-retention costs. The radar notes the pushback from developers. Legal and security teams should also say what may be stored.</li>
+      <li><strong>A tension.</strong> Git AI counts AI-written lines, which sounds like the metric the radar warns against. Use it for accountability, not for targets.</li>
+    </ul>
+  </div>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- SELF CHECK AND NEXT STEPS -->
+<section class="wrap topic" id="selfcheck" aria-labelledby="selfcheck-h">
+  <h2 id="selfcheck-h">Self-check and next steps</h2>
+
+  <fieldset class="ready" id="ready">
+    <legend>Where are you today? Tick what is true.</legend>
+    <label><input type="checkbox"><span>We have mapped where work waits between commit and production.</span></label>
+    <label><input type="checkbox"><span>We have defined which changes people must make, which they review, and which merge automatically.</span></label>
+    <label><input type="checkbox"><span>Agents run in a sandbox with limited access and no standing credentials.</span></label>
+    <label><input type="checkbox"><span>Model traffic goes through one place with budgets and logs.</span></label>
+    <label><input type="checkbox"><span>Someone owns our agent instructions and skills, and removes what is no longer needed.</span></label>
+    <label><input type="checkbox"><span>Work is specified up front, and agents get automatic feedback from tests, checks and pipeline status.</span></label>
+    <div class="ready-result" aria-live="polite">
+      <span class="count" id="ready-count">0 of 6</span>
+      <span id="ready-text">Fix the foundations first. More agents would mostly add waiting.</span>
+    </div>
+  </fieldset>
+
+  <h3 style="margin-top:2rem">Decisions to make this quarter</h3>
+  <ul class="plain-list">
+    <li>Run a path-to-production workshop, and set a limit on agent sessions per team based on the slowest step.</li>
+    <li>Write the oversight policy: which changes people make, which they review, and which merge automatically.</li>
+    <li>Put one gateway in front of model traffic, define two or three model tiers, and set up fast patching.</li>
+    <li>Name an owner for shared agent instructions, skills and tools, and schedule a pruning pass.</li>
+    <li>Require a sandbox, and the private-data, untrusted-input and outbound-path check, for every agent.</li>
+  </ul>
+
+  <h3 style="margin-top:1.4rem">Pilots worth trying</h3>
+  <ul class="plain-list">
+    <li>A machine-checkable architecture description or a formal specification for one or two critical designs.</li>
+    <li>ODCS data contracts where data products already exist.</li>
+    <li>A managed agent runtime for one low-risk, repeatable workflow.</li>
+  </ul>
+  <p><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+<!-- TRUST -->
+<section class="wrap topic" id="trust" aria-labelledby="trust-h">
+  <h2 id="trust-h">How far to trust this</h2>
+  <ul class="plain-list">
+    <li><strong>It is experience, not measurement.</strong> The radar comes from one consultancy’s project work. It says itself that the benefit of subagents for context management has not been measured systematically. Several entries rest on a single team, such as Claude Managed Agents, the agent suggestion box and Entire CLI.</li>
+    <li><strong>Thoughtworks sells AI services.</strong> Its own website lists AI/works and Agent/works. Read its recommendations as informed opinion from a company in this market.</li>
+    <li><strong>Ownership is changing fast.</strong> This year or last, Promptfoo came under OpenAI, Pi under Earendil, LibreChat under ClickHouse and Talos Linux under Yardi. Beads moved to a new maintainer, and Agent Package Manager is sponsored by a major company. Plan for governance and licence changes in open-source tools you depend on.</li>
+    <li><strong>The focus is software delivery.</strong> The radar says little about AI inside customer-facing products and business processes.</li>
+    <li><strong>Tool names date quickly.</strong> The radar is a snapshot from a September 2026 meeting. The decisions in this report will last longer than the product names.</li>
+    <li><strong>The interpretation is mine.</strong> The meanings, critical reviews and priority tags are my reading, not Thoughtworks’ position. This report was prepared with Claude, which is made by Anthropic. Claude Code and Claude Managed Agents are Anthropic products, and I have reported the radar’s views on them as written.</li>
+  </ul>
+
+  <h3 style="margin-top:2rem">Terms used in this report</h3>
+  <dl class="terms">
+    <dt>Agent</dt><dd>An AI system that takes steps on its own, such as editing code, running tests or calling tools.</dd>
+    <dt>Harness</dt><dd>Everything around an agent: instructions, skills, tools, memory, guardrails and feedback loops.</dd>
+    <dt>Gateway</dt><dd>One service that sits between your applications and AI models. It handles routing, keys, budgets and logging.</dd>
+    <dt>MCP</dt><dd>Model Context Protocol, a standard way for agents to connect to tools and data.</dd>
+    <dt>Sandbox</dt><dd>An isolated environment that limits what a program can read, change or reach.</dd>
+    <dt>Open-weight model</dt><dd>An AI model whose trained weights are published, so you can run it yourself.</dd>
+    <dt>CVE</dt><dd>A public identifier for a reported security vulnerability.</dd>
+    <dt>DORA metrics</dt><dd>Four measures of software delivery: lead time, deployment frequency, change failure rate and recovery time.</dd>
+  </dl>
+  <p style="margin-top:1.5rem"><a class="back" href="#top">Back to overview</a></p>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Source: <a href="https://www.thoughtworks.com/radar" target="_blank" rel="noopener">Thoughtworks Technology Radar Vol. 35</a> and its <a href="https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2026/11/tr_technology_radar_vol_35_en.pdf" target="_blank" rel="noopener">full PDF</a>, November 2026.</p>
+    <p>Prepared November 11, 2026, with Claude.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var boxes = document.querySelectorAll("#ready input[type=checkbox]");
+  var count = document.getElementById("ready-count");
+  var text = document.getElementById("ready-text");
+  function message(n) {
+    if (n <= 2) return "Fix the foundations first. More agents would mostly add waiting.";
+    if (n <= 4) return "Running several agent sessions under direct control is reasonable. Hold off on unattended work until the gaps close.";
+    return "You have the foundations for a bounded overnight build. Start with one task that is easy to undo.";
+  }
+  function update() {
+    var n = 0;
+    boxes.forEach(function (b) { if (b.checked) n++; });
+    count.textContent = n + " of " + boxes.length;
+    text.textContent = message(n);
+  }
+  boxes.forEach(function (b) { b.addEventListener("change", update); });
+  update();
+})();
+</script>
