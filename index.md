@@ -88,7 +88,7 @@ I like to explore thoughts and analogies on various different aspects. Sharing t
 Recent thoughts:
 
 {% for post in site.posts limit:3 %}
-- [{{ post.title }}]({{ post.url | relative_url }}){% if post.description %} — {{ post.description }}{% endif %}
+- [{{ post.title }}]({{ post.url | relative_url }}){% assign summary = post.summary | default: post.description %}{% if summary %} — {{ summary }}{% endif %}
 {% endfor %}
 
 [All thoughts →]({{ '/thoughts/' | relative_url }})

@@ -10,5 +10,5 @@ I like to explore thoughts and analogies on various different aspects. Sharing t
 ## Recent thoughts
 
 {% for post in site.posts %}
-- [{{ post.title }}]({{ post.url | relative_url }}) <span class="post-list-date">{{ post.date | date: "%-d %b %Y" }}</span>{% if post.description %} — {{ post.description }}{% endif %}
+- [{{ post.title }}]({{ post.url | relative_url }}) <span class="post-list-date">{{ post.date | date: "%-d %b %Y" }}</span>{% assign summary = post.summary | default: post.description %}{% if summary %} — {{ summary }}{% endif %}
 {% endfor %}

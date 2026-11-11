@@ -1,0 +1,13 @@
+<nav class="site-nav">
+  {% for item in site.data.navigation %}
+  {% if item.url == '/' %}
+    {% assign active = false %}{% if page.url == '/' or page.url == '/index.html' %}{% assign active = true %}{% endif %}
+  {% else %}
+    {% assign active = false %}{% if page.url contains item.url %}{% assign active = true %}{% endif %}
+  {% endif %}
+  <a href="{{ item.url | relative_url }}"{% if active %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a>
+  {% endfor %}
+  {% if site.github_username %}
+  <a href="https://github.com/{{ site.github_username }}" class="nav-gh">GitHub</a>
+  {% endif %}
+</nav>
