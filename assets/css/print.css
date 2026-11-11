@@ -1,8 +1,7 @@
 @media print {
-  .site-header,
-  .site-footer,
-  .site-nav {
-    border-color: #ccc;
+  .site-bar,
+  .site-footer {
+    display: none;
   }
   body {
     font-size: 12pt;
